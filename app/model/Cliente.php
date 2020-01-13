@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use Core\ORM\Model;
+
 /**
  * Description of Cliente
  *

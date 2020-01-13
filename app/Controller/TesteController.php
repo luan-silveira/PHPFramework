@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Core\HTTP\Request;
+use Core\HTTP\Controller;
 
 /**
  * Description of TesteController
