@@ -1,9 +1,7 @@
 <?php
 
-/**
- *
- * @author Usuario
- */
+namespace Core\Traits;
+
 trait MetodoGetSet
 {
 	private function manipularMetodosGetSetDados(&$arrDados, $strNome, $valor = null)

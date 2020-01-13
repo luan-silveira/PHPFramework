@@ -1,11 +1,7 @@
 <?php
 
-namespace App\Views;
-/**
- * Description of ViewManager
- *
- * @author Usuario
- */
+namespace Core\Views;
+
 class View
 {
 	private $nome;

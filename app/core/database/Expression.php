@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Database;
+namespace Core\Database;
 
 /**
  * Esta classe representa uma expressão do banco de dados que nÃ£o deve ser escapada com aspas.

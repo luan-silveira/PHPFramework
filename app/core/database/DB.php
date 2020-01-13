@@ -285,7 +285,7 @@ class DB
 	/**
 	 * Inicia uma nova consulta SQL.
 	 * 
-	 * @return \Database\QueryBuilder Retorna um novo objeto QueryBuilder para montar uma consulta.
+	 * @return \Core\Database\QueryBuilder Retorna um novo objeto QueryBuilder para montar uma consulta.
 	 */
 	public function query()
 	{

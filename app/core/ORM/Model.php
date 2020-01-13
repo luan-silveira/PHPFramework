@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace Core\ORM;
 
-use Database\DB;
+use Core\Database\DB;
 
 /**
  * Description of Model
@@ -12,7 +12,7 @@ use Database\DB;
 abstract class Model
 {
 
-	use \MetodoGetSet;
+	use Core\Traits\MetodoGetSet;
 
 	protected $conexao;
 	protected $tabela;
@@ -20,8 +20,6 @@ abstract class Model
 	protected $dados = [];
 	private $novo = false;
 	private $colunasModificadas = [];
-	
-	private $db;
 
 	public function __construct()
 	{
@@ -36,8 +34,9 @@ abstract class Model
 	public function __call($name, $arguments)
 	{
 		if (!$this->manipularMetodosGetSetDados($this->dados, $name, $arguments[0])) {
-			return call_user_func_array([DB::class, $name], $arguments);
+			return call_user_func_array([$this->getDB(), $name], $arguments);
 		}
+		
 		throw new BadMethodCallException("A função '$name' não existe na classe " . static::class);
 	}
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Routes;
+namespace Core\HTTP;
 
 class Request
 {
-	use \MetodoGetSet;
+	use Core\Traits\MetodoGetSet;
 
 	private $serverData = [];
 	private $bodyData = [];

@@ -1,8 +1,8 @@
 <?php
 
-use App\Views\View;
-use App\Routes\Request;
-use App\Routes\Router;
+use Core\Views\View;
+use Core\HTTP\Request;
+use Core\HTTP\Router;
 
 Router::get('/', function(Request $request){
 	return View::make('home', ['teste' => 'Teste! dfgdfgdfgdfg']);
