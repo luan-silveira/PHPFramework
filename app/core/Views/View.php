@@ -15,7 +15,7 @@ class View
 
 	public function show()
 	{
-		$filename = realpath(__DIR__) . "/{$this->nome}.php";
+		$filename = path('views/' . str_replace('.', '/', $this->nome));
 		header('Content-Type: text/html;charset-UTF-8');
 		extract($this->dados);
 		

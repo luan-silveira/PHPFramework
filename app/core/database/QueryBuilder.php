@@ -491,6 +491,14 @@ class QueryBuilder
 		return $this;
 	}
 
+	public function union($query, $boolUnionAll = false)
+	{
+		$this->unions[] = [
+			'query' => $query,
+			'all' => $boolUnionAll
+		];
+	}
+
 	/**
 	 * Retorna uma lista de registros de acordo com a consulta construída.
 	 * 

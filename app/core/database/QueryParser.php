@@ -56,9 +56,10 @@ class QueryParser
 		$strJoins = $this->parseJoins();
 		$strWhere = $this->parseWhere();
 		$strGroup = $this->parseGroupBy();
+		$strUnions = $this->parseUnions();
 		$strOrder = $this->parseOrderBy();
 
-		$sql = "SELECT $strDistinct$strSelect FROM $strFrom $strJoins $strWhere $strGroup $strOrder";
+		$sql = "SELECT $strDistinct$strSelect FROM $strFrom $strJoins $strWhere $strGroup $strUnions $strOrder";
 		if ($this->limit !== null)
 			$sql .= " LIMIT {$this->limit}";
 		if ($this->offset !== null)
@@ -195,6 +196,19 @@ class QueryParser
 		}, $orderBy);
 
 		return 'ORDER BY ' . $this->serializarItens($arrOrderBy);
+	}
+
+	public function parseUnions()
+	{
+		if (empty($unions = $this->builder->getUnions())) return '';
+
+		$strUnion = '';
+		foreach($unions as $arrUnion){
+			$query = $arrUnion['query'];
+			$strUnion .= 'UNION ' . ($arrUnion['all'] ? 'ALL ' : '') . "{$query->toSql()} ";
+		}
+
+		return $strUnion;
 	}
 
 	/**

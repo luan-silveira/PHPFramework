@@ -67,13 +67,13 @@ class Router
     }
 
     /**
-     * Busca o m�todo de acordo com o a rota formatada.
-     * Se o URL tiver par�metros, retorna tamb�m os par�metros.
+     * Busca o método de acordo com o a rota formatada.
+     * Se o URL tiver parâmetros, retorna também os parâmetros.
      * 
      * @param string $route Rota formatada.
-     * @param array &$params Array com os valores dos par�metros que foram informados na rota ($route) 
+     * @param array &$params Array com os valores dos parâmetros que foram informados na rota ($route) 
      * 
-     * @return mixed Retorna o m�todo cadastrado na rota, podendo ser uma string ou uma fun��o lambda.
+     * @return mixed Retorna o método cadastrado na rota, podendo ser uma string ou uma função lambda.
      */
     public function getRouteMethod($route, &$params)
     {

@@ -75,6 +75,40 @@ function dump($obj)
 	exit();
 }
 
+/**
+ * Retorna o endereço da página inicial (home) definido no arquivo de ambiente .env 
+ * 
+ * @return string
+ */
+function app_home()
+{
+	return env('APP_HOME');
+}
+
+/**
+ * Retorna o caminho da pasta raiz do servidor juntamente com o caminho especificado.
+ * 
+ * @param string $strPath Caminho do diretório/arquivo
+ * 
+ * @return string
+ */
+function path($strPath)
+{
+	return realpath(__DIR__) . "/$strPath";
+}
+
+/**
+ * Escapa os caracteres HTML
+ * 
+ * @param string $str
+ * 
+ * @return string
+ */
+function __esc($str)
+{
+	return htmlspecialchars($str);
+}
+
 function camelCaseToUnderline($string)
 {
 	preg_match_all('/[a-z][A-Z]/', $string, $matches);

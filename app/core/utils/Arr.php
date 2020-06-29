@@ -97,5 +97,29 @@ class Arr
 			return ($boolExcluir XOR in_array($key, $arrColunas));
 		}, ARRAY_FILTER_USE_KEY);
 	}
+	
+	
+	/**
+	 * Retorna o item de um array multidimensional utilizando notação de ponto.
+	 * Ex.: 'item.subitem' = $arrray['item']['subitem']
+	 * 
+	 * @param array $array Array
+	 * @param string $strItem Item no formato de notação de ponto.
+	 * 
+	 * @return mixed
+	 */
+	public static function get($array, $strItem){
+		$arrChaves = explode('.', rtrim($strItem, '.'));
+		$arrChavesAux = [];
+		foreach ($arrChaves as $strChave) {
+			$arrChavesAux[] = $strChave;
+			if (!isset($array[$strChave])){
+				throw new \Exception('O item '. implode('.', $arrChavesAux) . ' não existe no array');
+			}
+			$array = $array[$strChave];
+		}
+		
+		return $array;
+	}
 
 }

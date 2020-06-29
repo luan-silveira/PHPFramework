@@ -15,6 +15,5 @@ class TesteController extends Controller
 	
 	public function teste(Request $request){
 		
-		
 	}
 }
